@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import './questao.dart';
+import './resposta.dart';
 
 void main() => runApp(PerguntaApp());
 
-class PerguntaAppState extends State<PerguntaApp> {
-  var perguntaSelecionada = 0;
+class _PerguntaAppState extends State<PerguntaApp> {
+  var _perguntaSelecionada = 0;
 
-  void responder() {
+  void _responder() {
     setState(() {
-      perguntaSelecionada++;
+      _perguntaSelecionada++;
     });
-    print(perguntaSelecionada);
   }
 
   @override
@@ -29,22 +30,18 @@ class PerguntaAppState extends State<PerguntaApp> {
             title: const Text('Quiz')),
         body: Column(
           children: [
-            Text(perguntas[perguntaSelecionada]),
-            ElevatedButton(
-              onPressed: responder,
-              child: const Text(
-                  'É um framework de código aberto criado pelo Google para o desenvolvimento de aplicativos multiplataforma'),
+            Questao(
+              (perguntas[_perguntaSelecionada]),
             ),
-            ElevatedButton(
-              onPressed: responder,
-              child: const Text(
-                  'É uma linguagem de programação moderna, segura e de alto desempenho'),
-            ),
-            ElevatedButton(
-              onPressed: responder,
-              child: const Text(
-                  'É um sistema que fornece diretrizes para desenvolvimento de interfaces de usuário consistentes e acessíveis em diferentes plataformas'),
-            ),
+            Resposta(
+                'É um framework de código aberto criado pelo Google para o desenvolvimento de aplicativos multiplataforma',
+                _responder),
+            Resposta(
+                'É uma linguagem de programação moderna, segura e de alto desempenho',
+                _responder),
+            Resposta(
+                'É um sistema que fornece diretrizes para desenvolvimento de interfaces de usuário consistentes e acessíveis em diferentes plataformas',
+                _responder)
           ],
         ),
       ),
@@ -55,7 +52,7 @@ class PerguntaAppState extends State<PerguntaApp> {
 class PerguntaApp extends StatefulWidget {
   const PerguntaApp({super.key});
   @override
-  PerguntaAppState createState() {
-    return PerguntaAppState();
+  _PerguntaAppState createState() {
+    return _PerguntaAppState();
   }
 }
