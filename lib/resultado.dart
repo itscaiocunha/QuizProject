@@ -13,9 +13,11 @@ class Resultado extends StatelessWidget {
     if (pontuacao < 10) {
       return 'Você não acertou nenhuma!';
     } else if (pontuacao < 20) {
-      return 'Parabéns! Você acertou 1';
+      return 'Parabéns! Acertou 1';
     } else if (pontuacao < 30) {
-      return 'Parabéns! Você acertou 2';
+      return 'Parabéns! Acertou 2';
+    } else if (pontuacao < 40) {
+      return 'Parabéns! Acertou 3';
     } else {
       return 'Mestre Jedi!';
     }
@@ -33,7 +35,7 @@ class Resultado extends StatelessWidget {
           onPressed: quandoReiniciarQuiz,
           child: const Text('Reiniciar'),
           style: TextButton.styleFrom(
-            backgroundColor: Colors.blue,
+            backgroundColor: Colors.purple,
             foregroundColor: Colors.white,
           ),
         )

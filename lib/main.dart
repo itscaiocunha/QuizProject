@@ -13,7 +13,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
       'resposta': [
         {
           'texto':
-              'É um framework de código fechado criado pela Microsoft para o desenvolvimento de aplicativos multiplataforma',
+              'É um framework de código fechado criado pela Microsoft para o desenvolvimento de websites',
           'pontuacao': 0,
         },
         {
@@ -23,7 +23,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         },
         {
           'texto':
-              'É uma linguagem de programação criada pelo Google para o desenvolvimento de sistemas web',
+              'É uma linguagem de programação criada pelo Google para o desenvolvimento de IA',
           'pontuacao': 0,
         }
       ]
@@ -66,6 +66,24 @@ class _PerguntaAppState extends State<PerguntaApp> {
           'pontuacao': 0,
         },
       ]
+    },
+    {
+      'pergunta': 'O que é Splash?',
+      'resposta': [
+        {
+          'texto': 'Não é de flutter',
+          'pontuacao': 0,
+        },
+        {
+          'texto': 'Elemento gráfico de uma janela contendo apenas texto',
+          'pontuacao': 0,
+        },
+        {
+          'texto':
+              'Elemento de controle gráfico que consiste em uma janela contendo uma imagem, um logotipo e a versão atual do software',
+          'pontuacao': 10,
+        },
+      ]
     }
   ];
 
@@ -101,8 +119,9 @@ class _PerguntaAppState extends State<PerguntaApp> {
       home: Scaffold(
           //Estrutura da Aplicação
           appBar: AppBar(
-              //Identidade da Aplicação
-              title: const Text('Quiz')),
+            centerTitle: true,
+            title: const Text('Quiz'),
+          ),
           body: temPerguntaSelecionada
               ? Questionario(
                   perguntas: _perguntas,
